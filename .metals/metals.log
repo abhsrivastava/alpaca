@@ -1,0 +1,32 @@
+INFO  time: initialize in 0.5s
+INFO  running '/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/bin/java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar /var/folders/1g/mrk0zr0n1rdcwy5_8gcsn8745yl283/T/metals3904441271978898908/sbt-launch.jar metalsEnable bloopInstall'
+WARN  no build target: /Users/srabh/code/alpaca/build.sbt
+INFO  [info] Loading settings for project global-plugins from metals.sbt ...
+INFO  [info] Loading global plugins from /Users/srabh/.sbt/1.0/plugins
+INFO  [info] Loading settings for project alpaca-build from plugins.sbt ...
+INFO  [info] Loading project definition from /Users/srabh/code/alpaca/project
+INFO  [warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
+INFO  [success] Generated .bloop/alpaca-build.json
+INFO  [success] Total time: 8 s, completed Nov 30, 2019 4:47:47 PM
+INFO  [warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
+INFO  [info] Loading settings for project root from build.sbt ...
+INFO  [info] Set current project to alpaca (in build file:/Users/srabh/code/alpaca/)
+INFO  [info] Set current project to alpaca (in build file:/Users/srabh/code/alpaca/)
+INFO  [info] semanticdb-scalac is enabled
+INFO  [warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
+INFO  [warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
+INFO  [success] Generated .bloop/root.json
+INFO  [success] Generated .bloop/root-test.json
+INFO  [success] Total time: 10 s, completed Nov 30, 2019 4:48:03 PM
+INFO  build tool exit: 0
+INFO  time: ran 'sbt bloopInstall' in 38s
+INFO  running embedded 'bloop bsp --protocol local --socket /var/folders/1g/mrk0zr0n1rdcwy5_8gcsn8745yl283/T/bsp1052359752295215168/11smpt3418ptu.socket'
+The server is listening for incoming connections at local:///var/folders/1g/mrk0zr0n1rdcwy5_8gcsn8745yl283/T/bsp1052359752295215168/11smpt3418ptu.socket...
+Accepted incoming BSP client connection at local:///var/folders/1g/mrk0zr0n1rdcwy5_8gcsn8745yl283/T/bsp1052359752295215168/11smpt3418ptu.socket
+INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/srabh/Library/Caches/org.scalameta.metals/bsp.trace.json
+request received: build/initialize
+INFO  time: connected to build server in 3.5s
+BSP initialization handshake complete.
+INFO  time: imported build in 0.25s
+INFO  time: indexed workspace in 3.98s
+WARN  no build target: /Users/srabh/code/alpaca/build.sbt
