@@ -59,27 +59,27 @@ This is my first play framework template
                 </tr>
                 <tr>
                     <td>Pattern Day Trader</td>
-                    <td>@ae.patternDayTrader</td>
+                    <td>@{AccountEntity.friendlyBoolean(ae.patternDayTrader)}</td>
                 </tr>
                 <tr>
                     <td>Trading Blocked</td>
-                    <td>@ae.tradingBlocked</td>
+                    <td>@{AccountEntity.friendlyBoolean(ae.tradingBlocked)}</td>
                 </tr>
                 <tr>
                     <td>Transfers Blocked</td>
-                    <td>@ae.transfersBlocked</td>
+                    <td>@{AccountEntity.friendlyBoolean(ae.transfersBlocked)}</td>
                 </tr>
                 <tr>
                     <td>Account Blocked</td>
-                    <td>@ae.accountBlocked</td>
+                    <td>@{AccountEntity.friendlyBoolean(ae.accountBlocked)}</td>
                 </tr>
                 <tr>
                     <td>Created At </td>
-                    <td>@ae.createdAt</td>
+                    <td>@ae.friendlyCreatedAt</td>
                 </tr>
                 <tr>
                     <td>Trade Suspended by User</td>
-                    <td>@ae.tradeSuspendedByUser</td>
+                    <td>@{AccountEntity.friendlyBoolean(ae.tradeSuspendedByUser)}</td>
                 </tr>
                 <tr>
                     <td>Multiplier</td>
@@ -87,7 +87,7 @@ This is my first play framework template
                 </tr>
                 <tr>
                     <td>Shorting Enabled</td>
-                    <td>@ae.shortingEnabled</td>
+                    <td>@{AccountEntity.friendlyBoolean(ae.shortingEnabled)}</td>
                 </tr>
                 <tr>
                     <td>Equity</td>

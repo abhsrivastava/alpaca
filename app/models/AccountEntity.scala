@@ -1,6 +1,7 @@
 package models
 
 import java.time.{Instant, ZonedDateTime}
+import java.time.format.DateTimeFormatter
 import play.api.libs.json._
 import play.api.libs.json.JsonNaming.SnakeCase
 import config.AlpacaConfig
@@ -80,9 +81,13 @@ case class AccountEntity(
     lastMaintenanceMargin: Double, 
     sma: Int,
     daytradeCount: Int
-)
+) {
+    val df = DateTimeFormatter.ofPattern("MMM dd YYYY h:mma")
+    val friendlyCreatedAt = df.format(createdAt)
+}
 
 object AccountEntity {
+    def friendlyBoolean(b: Boolean) : String = if (b) "Yes" else "No"
     def apply(input: AccountEntityInternal, c: AlpacaConfig) : AccountEntity = {
         AccountEntity(
             input.id,
