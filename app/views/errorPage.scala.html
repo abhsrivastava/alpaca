@@ -1,0 +1,16 @@
+@(ex: models.Error)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Error Page</title>
+    </head>
+    <body>
+        <p>The following errors occurred...</p>
+        <ul>
+            @ex.errorMessages.map{err =>
+                <li>@err</li>
+            }
+        </ul>
+    </body>
+</html>

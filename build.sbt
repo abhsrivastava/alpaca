@@ -8,10 +8,13 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.13.1"
 
 libraryDependencies += guice
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3" % Test
-
-// Adds additional packages into Twirl
-//TwirlKeys.templateImports += "comacom.abhi.controllers._"
-
-// Adds additional packages into conf/routes
-// play.sbt.routes.RoutesKeys.routesImport += "comacom.abhi.binders._"
+libraryDependencies ++= Seq(
+    ws,
+    ehcache,
+    "com.typesafe.play" %% "play-json" % "2.7.4",
+    "ai.x" %% "play-json-extensions" % "0.40.2",
+    "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3" % Test
+)
+scalacOptions ++= Seq(
+    "-language:postfixOps"
+)

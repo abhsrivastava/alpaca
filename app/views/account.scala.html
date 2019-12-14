@@ -1,0 +1,22 @@
+@*
+This is my first play framework template
+*@
+
+@* as of now no parameters *@
+@(ae: models.AccountEntity)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Alpaca Trading Client</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+    </head>
+    <body>
+        <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>
+        <ul>
+            <li>@ae.id</li>
+            <li>@ae.status</li>
+        </ul>
+    </body>
+</html>

@@ -1,6 +1,8 @@
 logs
 target
+/.metals
 /.idea
+/.DS_Store
 /.idea_modules
 /.classpath
 /.project
