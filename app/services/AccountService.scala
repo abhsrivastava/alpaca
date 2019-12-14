@@ -10,16 +10,13 @@ import scala.concurrent._
 import play.api.libs.json._
 
 @Singleton
-class AccountServices @Inject()(c: AlpacaConfig, ws: WSClient) {
+class AccountService @Inject()(c: AlpacaConfig, ws: WSClient) extends BaseService(c) {
     val endpoint = s"${c.endpoint}/v2/account"
     import AccountEntityInternal._
     def getAccountInfo() : Future[Either[Error, AccountEntity]] = {
         ws
             .url(endpoint)
-            .addHttpHeaders(
-                "APCA-API-KEY-ID" -> c.keyId, 
-                "APCA-API-SECRET-KEY" -> c.secret,
-                "Accept" -> "application/json")
+            .addHttpHeaders(getHeaders():_*)
             .withRequestTimeout(10 seconds)
             .withFollowRedirects(true)
             .withRequestFilter(AhcCurlRequestLogger())
@@ -30,7 +27,7 @@ class AccountServices @Inject()(c: AlpacaConfig, ws: WSClient) {
             }
             .map { 
                 case JsSuccess(ac, _) => 
-                    Right(AccountEntity(ac))
+                    Right(AccountEntity(ac, c))
                 case e : JsError => 
                     println(s"failed to parse again")
                     Left(Error(List(JsError.toJson(e).toString)))

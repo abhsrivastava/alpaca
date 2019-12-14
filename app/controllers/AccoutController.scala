@@ -6,7 +6,7 @@ import play.api.libs.ws._
 import javax.inject._
 import play.api.cache._
 import models.AccountEntity
-import services.AccountServices
+import services.AccountService
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import models.CacheKeys._
@@ -14,7 +14,7 @@ import models.CacheKeys._
 @Singleton
 class AccountController @Inject()(
     cache: AsyncCacheApi,
-    accountServices: AccountServices,
+    accountService: AccountService,
     cc: ControllerComponents) extends AbstractController(cc) {
     def index() = Action.async {
         val acInfo : Future[Either[models.Error, AccountEntity]] = (for {
@@ -33,7 +33,7 @@ class AccountController @Inject()(
 
     def getAccountInfo(cache: AsyncCacheApi) : Future[Either[models.Error, AccountEntity]] = {
         (for {
-            accEither <- accountServices.getAccountInfo()
+            accEither <- accountService.getAccountInfo()
         } yield {
             accEither.fold(
                 e => Future.successful(Left(e)),

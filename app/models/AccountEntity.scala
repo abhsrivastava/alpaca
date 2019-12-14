@@ -1,8 +1,9 @@
 package models
 
-import java.time.LocalDateTime
+import java.time.{Instant, ZonedDateTime}
 import play.api.libs.json._
 import play.api.libs.json.JsonNaming.SnakeCase
+import config.AlpacaConfig
 
 object AccountStatus extends Enumeration {
     type AccountStatus = Value
@@ -30,7 +31,7 @@ case class AccountEntityInternal(
     tradingBlocked: Boolean,
     transfersBlocked: Boolean,
     accountBlocked: Boolean,
-    createdAt: LocalDateTime,
+    createdAt: Instant,
     tradeSuspendedByUser: Boolean,
     multiplier: String,
     shortingEnabled: Boolean,
@@ -66,7 +67,7 @@ case class AccountEntity(
     tradingBlocked: Boolean,
     transfersBlocked: Boolean,
     accountBlocked: Boolean,
-    createdAt: LocalDateTime,
+    createdAt: ZonedDateTime,
     tradeSuspendedByUser: Boolean,
     multiplier: Int,
     shortingEnabled: Boolean,
@@ -82,7 +83,7 @@ case class AccountEntity(
 )
 
 object AccountEntity {
-    def apply(input: AccountEntityInternal) : AccountEntity = {
+    def apply(input: AccountEntityInternal, c: AlpacaConfig) : AccountEntity = {
         AccountEntity(
             input.id,
             input.accountNumber,
@@ -97,7 +98,7 @@ object AccountEntity {
             input.tradingBlocked,
             input.transfersBlocked,
             input.accountBlocked,
-            input.createdAt,
+            input.createdAt.atZone(c.zoneId),
             input.tradeSuspendedByUser,
             input.multiplier.toInt,
             input.shortingEnabled,
